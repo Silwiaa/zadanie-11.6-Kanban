@@ -46,4 +46,13 @@ $(function() {
         return $column;
     }
     
+    // CREATE COLUMN PROTOTYPE
+    Column.prototype = {
+        addCard: function(card) {
+            this.$element.cildren('ul').append(card.$element);
+        },
+        removeColumn: function() {
+            this.$element.remove();
+        }
+    };
 })
