@@ -42,7 +42,7 @@ $(function() {
                 .append($columnAddCard)
                 .append($columnCardList);
         
-        // RETURN OF CREADED COLUMN
+        // RETURN CREADED COLUMN
         return $column;
     }
     
@@ -56,26 +56,40 @@ $(function() {
         }
     };
     
-// CREATE CARD CLASS
-function Card(description) {
-	var self = this;
+    // CREATE CARD CLASS
+    function Card(description) {
+        var self = this;
 
-    this.id = randomString();
-    this.description = description;
-    this.$element = createCard();
+        this.id = randomString();
+        this.description = description;
+        this.$element = createCard();
 
-    // FUNCTION CREATE CART
-    function createCard() {
-    	// CREATING COMPONENTS OF CARD
-        var $card = $('<li>').addClass('card'),
-            $cardDescription = $('<p>').addClass('card-description').text(self.description),
-            $cardDelete = $('<button>').addClass('btn-delete').text('x');
-        
-        // ADD EVENT
-        $cardDelete.click(function(){
-            self.removeCard();
-        });
+        // FUNCTION CREATE CART
+        function createCard() {
+            // CREATING COMPONENTS OF CARD
+            var $card = $('<li>').addClass('card'),
+                $cardDescription = $('<p>').addClass('card-description').text(self.description),
+                $cardDelete = $('<button>').addClass('btn-delete').text('x');
+
+            // ADD EVENT
+            $cardDelete.click(function(){
+                self.removeCard();
+            });
+
+            //CONSTRUCTION CARD ELEMENT
+            $card.append($cardDelete)
+                .append($cardDescription);
+
+            // RETURN CREADED CARD
+            return $card;
+        }
     }
-}
     
-});
+    // CREATE CARD PROTOTYPE
+    Card.prototype = {
+	   removeCard: function() {
+           this.$element.remove();
+       }
+    }
+
+    });
