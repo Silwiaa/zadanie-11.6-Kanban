@@ -20,7 +20,7 @@ $(function() {
         this.$element = createColumn();
         
         function createColumn() {
-            // CREATING COMPONENTS OF COLUMNS
+            // CREATING COMPONENTS OF COLUMN
             var $column = $('<div>').addClass('column'),
                 $columnTitle = $('<h2>').addClass('column-title').text(self.name),
                 $columnCardList = $('<ul>').addClass('column-card-list'),
@@ -55,4 +55,27 @@ $(function() {
             this.$element.remove();
         }
     };
-})
+    
+// CREATE CARD CLASS
+function Card(description) {
+	var self = this;
+
+    this.id = randomString();
+    this.description = description;
+    this.$element = createCard();
+
+    // FUNCTION CREATE CART
+    function createCard() {
+    	// CREATING COMPONENTS OF CARD
+        var $card = $('<li>').addClass('card'),
+            $cardDescription = $('<p>').addClass('card-description').text(self.description),
+            $cardDelete = $('<button>').addClass('btn-delete').text('x');
+        
+        // ADD EVENT
+        $cardDelete.click(function(){
+            self.removeCard();
+        });
+    }
+}
+    
+});
