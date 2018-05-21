@@ -59,7 +59,7 @@ $(function() {
     // CREATE COLUMN PROTOTYPE
     Column.prototype = {
         addCard: function(card) {
-        this.$element.cildren('ul').append(card.$element);
+        this.$element.children('ul').append(card.$element);
         },
         removeColumn: function() {
             this.$element.remove();
@@ -83,8 +83,8 @@ $(function() {
 
             // ADD EVENT
             $cardDelete.click(function(){
-                self.removeCard();
-                });
+            self.removeCard();
+            });
 
             // CONSTRUCTION OF CARD ELEMENTS
             $card.append($cardDelete)
