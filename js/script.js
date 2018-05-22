@@ -30,7 +30,7 @@ $(function() {
         
         function createColumn() {
             // CREATING COMPONENTS OF COLUMN
-            var $column = $('<div>').addClass('column'),
+            var $column = $('<div>').addClass('column col-m-4 col-s-12'),
                 $columnTitle = $('<h2>').addClass('column-title').text(self.name),
                 $columnCardList = $('<ul>').addClass('column-card-list'),
                 $columnDelete = $('<button>').addClass('btn-delete').text('x'),
@@ -59,7 +59,7 @@ $(function() {
     // CREATE COLUMN PROTOTYPE
     Column.prototype = {
         addCard: function(card) {
-        this.$element.children('ul').append(card.$element);
+            this.$element.children('ul').append(card.$element);
         },
         removeColumn: function() {
             this.$element.remove();
