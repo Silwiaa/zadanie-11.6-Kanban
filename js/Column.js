@@ -1,8 +1,8 @@
-function Column(name) {
+function Column(id, name) {
 	var self = this;
 	
-	this.id = randomString();
-	this.name = name;
+	this.id = id;
+	this.name = name || 'No name given';
 	this.element = createColumn();
 
 	function createColumn() {
@@ -17,11 +17,20 @@ function Column(name) {
 		columnDelete.click(function() {
 			self.deleteColumn();
 		});
-		
-		columnAddCard.click(function(event) {
-			event.preventDefault();
-			self.createCard(new Card(prompt("Wpisz nazwę karty")));
-		});
+		$columnAddCard.click(function(event) {
+	       var cardName = prompt("Enter the name of the card");
+	       event.preventDefault();
+	       $.ajax({
+        url: baseUrl + '/card',
+        method: 'POST',
+        data: {
+              //body query
+        },
+        success: function() {
+            //create a new client side card
+        }
+    });
+});
 			
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		column.append(columnTitle)
@@ -36,6 +45,14 @@ Column.prototype = {
 	  this.element.children('ul').append(card.element);
 	},
 	deleteColumn: function() {
-	  this.element.remove();
+        var self = this;
+        $.ajax ({
+            url: baseUrl + '/column/' + self.id,
+            method: 'DELETE',
+            succes: function(response){
+                this.element.remove();
+            }
+        });
+	  
 	}
 };
