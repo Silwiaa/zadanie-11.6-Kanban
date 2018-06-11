@@ -1,8 +1,8 @@
 //VARIABLES TO COMUNICATE WITH SERVER
 var baseUrl = 'https://kodilla.com/pl/bootcamp-api',
     myHeaders = {
-        'X-Client-Id': 'X-Client-Id',
-  'X-Auth-Token': 'X-Auth-Token'
+        'X-Client-Id': 3160,
+        'X-Auth-Token': '610a42ba24e945bde20e8f1178da8236
 };
 
 $.ajaxSetup({
