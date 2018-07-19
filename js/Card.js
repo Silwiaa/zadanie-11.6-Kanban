@@ -1,7 +1,6 @@
 // KLASA KANBAN CARD
 function Card(id, name) {
 	var self = this;
-	
 	this.id = id;
 	this.name = name;
 	this.element = createCard();
@@ -17,7 +16,7 @@ function Card(id, name) {
 		
 		card.append(cardDeleteBtn);
 		cardDescription.text(self.name);
-		card.append(cardDescription)
+		card.append(cardDescription);
 		return card;
 	}
 }
@@ -28,8 +27,8 @@ Card.prototype = {
             url: baseUrl + '/card/' + self.id,
             method: 'DELETE',
             success: function () {
-                self.$element.remove();
+                self.element.remove();
             }
         });
 	}
-}
+};

@@ -59,12 +59,13 @@ $(function(){
 
       // KONSTRUOWANIE ELEMENTU KOLUMNY
       column.append(columnTitle)
-      .append(columnDelete)
-      .append(columnAddCard)
-      .append(columnCardList);
+        .append(columnDelete)
+        .append(columnAddCard)
+        .append(columnCardList);
       return column;
     }
   }
+    
   Column.prototype = {
     createCard: function(card) {
       this.element.children('ul').append(card.element);
@@ -91,7 +92,7 @@ $(function(){
       });
       card.append(cardDeleteBtn);
       cardDescription.text(self.description);
-      card.append(cardDescription);
+      card.append(cardDescription)
       return card;
     }
   }
@@ -99,7 +100,7 @@ $(function(){
     removeCard: function() {
       this.element.remove();
     }
-  };
+  }
 
   // TWORZENIE NOWYCH EGZEMPLARZY KOLUMN
   var todoColumn = new Column('Do zrobienia');
@@ -113,9 +114,9 @@ $(function(){
 
   // TWORZENIE NOWYCH EGZEMPLARZY KART
   var card1 = new Card('Nowe zadanie');
-  var card2 = new Card('stworzyc tablice kanban');
+  var card2 = new Card('Stworzyc tablice kanban');
 
   // DODAWANIE KART DO KOLUMN
   todoColumn.createCard(card1);
   doingColumn.createCard(card2);
-});
+})
